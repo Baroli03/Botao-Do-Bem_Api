@@ -1,0 +1,6 @@
+@Botaodobem_HostAddress = http://localhost:5159
+
+GET {{Botaodobem_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
