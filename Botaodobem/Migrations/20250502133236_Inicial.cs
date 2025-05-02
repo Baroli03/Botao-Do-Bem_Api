@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Pokedex.Migrations
+namespace Botaodobem.Migrations
 {
     /// <inheritdoc />
     public partial class Inicial : Migration
@@ -11,17 +11,17 @@ namespace Pokedex.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "pokemons",
+                name: "Emocoes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(type: "TEXT", nullable: true),
-                    Peso = table.Column<float>(type: "REAL", nullable: false)
+                    Frase = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_pokemons", x => x.Id);
+                    table.PrimaryKey("PK_Emocoes", x => x.Id);
                 });
         }
 
@@ -29,7 +29,7 @@ namespace Pokedex.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "pokemons");
+                name: "Emocoes");
         }
     }
 }
