@@ -38,4 +38,11 @@ app.MapGet("/emocoes", (AppDbContext db) =>
     return Results.Ok(listaEmocoes);
 });
 
+app.MapGet("/emocoes/{id}", async (int id, AppDbContext db) => 
+{
+    var emocoes = await db.Emocao.FindAsync(id);
+    return emocoes is not null ? Results.Ok(emocoes) : Results.NotFound("Emocao não encontrado!");
+});
+
+
 app.Run();
