@@ -19,8 +19,23 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/weatherforecast", () => "Tudo certo!")
-    .WithName("GetWeatherForecast")
-    .WithOpenApi();
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.EnsureCreated();
+
+    if (!db.Emocao.Any())
+    {
+        var sql = File.ReadAllText("banco.sql");
+        db.Database.ExecuteSqlRaw(sql);
+    }
+}
+
+
+app.MapGet("/emocoes", (AppDbContext db) =>
+{
+    var listaEmocoes = db.Emocao.ToList();
+    return Results.Ok(listaEmocoes);
+});
 
 app.Run();

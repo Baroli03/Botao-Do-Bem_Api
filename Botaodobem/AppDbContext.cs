@@ -6,5 +6,5 @@ public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-    public DbSet<Emocao> Emocoes { get; set; }
+    public DbSet<Emocao> Emocao { get; set; }
 }
