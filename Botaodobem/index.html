@@ -4,20 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Botão do Bem</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <header>
-        <button id="Botao">BEM</button>
+        <h1>Cadastro e Escolha de Emoções</h1>
     </header>
+
     <main>
-        
+        <section class="form-container">
+            <h2>Adicionar Emoção</h2>
+            <form id="emotionForm">
+                <label for="name">Nome da Emoção</label>
+                <input type="text" id="name" required>
+
+                <label for="phrase">Frase</label>
+                <input type="text" id="phrase" required>
+
+                <button type="submit">Adicionar Emoção</button>
+            </form>
+        </section>
+
+        <section class="emotion-selection">
+            <h2>Escolha uma Emoção</h2>
+            <select id="emotionSelect">
+                <option value="" disabled selected>Selecione uma emoção</option>
+            </select>
+            <p id="emotionPhrase" class="emotion-phrase"></p>
+        </section>
+
+        <section class="emotion-list">
+            <h2>Emoções Cadastradas</h2>
+            <ul id="emotionList"></ul>
+        </section>
     </main>
-    
 
-
-        
-
-    <script src="script/script.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
