@@ -5,7 +5,6 @@
   font-weight: 300;
   font-style: normal;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-
 }
 
 .creepster-regular {
@@ -14,74 +13,121 @@
   font-style: normal;
 }
 
-
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; 
 }
 
-    .maldito {
-       margin: 0;
-      height: 100vh;
-      background: radial-gradient(circle at center, #2b0000 0%, #4a0000 70%, #7a0000 100%, #000000 100%);
-      background-repeat: no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      position: relative;
-      font-family: 'Courier New', monospace;
-    }
+.container {
+  width: 100%;
+  max-width: 1200px; 
+  margin: 0 auto;    
+  padding: 0 20px;    
+}
 
-    .divino {
-      margin: 0;
-      height: 100vh;
-      background: radial-gradient(circle at center, #fffbe6 0%, #fef3c0 40%, #f8e392 70%, #f4d35e 100%, #ffffff 100%);
-      background-repeat: no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      position: relative;
-      font-family: sans-serif;
-    }
+
+
+.maldito {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at center, #2b0000 0%, #4a0000 70%, #7a0000 100%, #000000 100%);
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  position: relative;
+}
+
+.divino {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at center, #fffbe6 0%, #fef3c0 40%, #f8e392 70%, #f4d35e 100%, #ffffff 100%);
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  position: relative;
+}
+main {
+  margin-top: 50px;
+}
+main button {
+  font-size: 20px;
+  height: 60px;
+  border-radius: 10px;
+}
 
 #mode-toggle {
     display: flex;
     justify-content: center;
-    font-size: 3.3rem;
+    font-size: 4.4rem;
     color: black;
     font-weight: bold;
     text-decoration: none;
     border: none;
- 
+    
 }
-
 
 
 .button {
     display: inline-block;
-    padding: 0rem 0.8rem;
-    padding-bottom: 0.3rem;
     margin-left: 0.6rem;
     background: transparent;
+    padding: 0rem 0.8rem;
     color: black;
     border: none;
-    border-radius: 4px;
     text-decoration: none;
     cursor: pointer;
     transition-duration: 3ms;
-
+    position: relative;
+    top: -2px;
+    right: -5px;
 }
-
 .button:hover {
   background-color: rgb(185, 182, 182);
 }
 
-#button-mode {
-    font-size: 7rem;
+.button_top {
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
 
+.button_top:hover {
+  font-size: 24px;
+}
+#emotions:hover > :not(:hover) {
+  filter: blur(5px);
+  opacity: 20;
+
+}
+
+#button-mode {
+    font-size: 9rem;
+}
+
+#response {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+
+}
+
+#response span {
+  display: inline-block; 
+  padding: 5px; 
+  border: 2px solid #ccc;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 40px;
+
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 
+  repeat(auto-fit, minmax(300px, 1fr));
+}
