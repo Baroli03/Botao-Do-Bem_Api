@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300;400;500;600;700&family=Creepster&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300;400;500;600;700&family=Nosifer&display=swap');
 .cormorant-unicase-light {
   font-family: "Cormorant Unicase", serif;
   font-weight: 300;
@@ -8,16 +7,19 @@
 }
 
 .creepster-regular {
-  font-family: "Creepster", system-ui;
+  font-family: "Nosifer", sans-serif;
   font-weight: 400;
   font-style: normal;
+  text-shadow: 10px 10px 6px black;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; 
+  transition: all 0.4s ease;
 }
+
 
 .container {
   width: 100%;
@@ -63,7 +65,7 @@ main button {
 #mode-toggle {
     display: flex;
     justify-content: center;
-    font-size: 4.4rem;
+    font-size: 2.9rem;
     color: black;
     font-weight: bold;
     text-decoration: none;
@@ -101,12 +103,13 @@ main button {
 }
 #emotions:hover > :not(:hover) {
   filter: blur(5px);
-  opacity: 20;
+  opacity: 0.5;
 
 }
 
 #button-mode {
-    font-size: 9rem;
+    font-size: 6.0rem;
+    transition: all 0.4s ease;
 }
 
 #response {
@@ -122,7 +125,7 @@ main button {
   border: 2px solid #ccc;
   font-size: 24px;
   text-align: center;
-  margin-bottom: 40px;
+  margin: 80px;
 
 }
 
