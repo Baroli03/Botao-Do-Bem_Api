@@ -3,13 +3,30 @@ using Botaodobem;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configura serviços primeiro:
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost8080", policy =>
+    {
+        policy.WithOrigins("http://localhost:8080")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
+builder.Services.AddControllers();
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=app.db"));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Agora cria o app:
 var app = builder.Build();
+
+// Ativa o CORS
+app.UseCors("AllowLocalhost8080");
 
 if (app.Environment.IsDevelopment())
 {
@@ -18,6 +35,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// resto do seu código continua igual...
 
 using (var scope = app.Services.CreateScope())
 {
