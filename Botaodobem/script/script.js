@@ -86,3 +86,41 @@ const getEmocoes = async () => {
 
 
 getEmocoes();
+
+const frases = {
+    raiva: [
+        "A raiva é um ácido que pode fazer mais mal ao recipiente do que a qualquer coisa sobre a qual for derramado.",
+        "Transforme a raiva em ação positiva."
+    ],
+    tristeza: [
+        "A tristeza voa com as asas do tempo.",
+        "Chorar também é sinal de força."
+    ],
+    alegria: [
+        "A alegria evita mil males.",
+        "Sorrir é a forma mais simples de espalhar felicidade."
+    ]
+};
+
+document.getElementById("mostrar-frase").addEventListener("click", () => {
+    const emocao = document.getElementById("emotion").value;
+    const lista = frases[emocao];
+    if (lista && lista.length > 0) {
+        const index = Math.floor(Math.random() * lista.length);
+        document.getElementById("resultado").textContent = lista[index];
+    } else {
+        document.getElementById("resultado").textContent = "Nenhuma frase disponível.";
+    }
+});
+
+document.getElementById("adicionar").addEventListener("click", () => {
+    const emocao = document.getElementById("emotion").value;
+    const novaFrase = document.getElementById("nova-frase").value.trim();
+    if (novaFrase !== "") {
+        frases[emocao].push(novaFrase);
+        document.getElementById("nova-frase").value = "";
+        alert("Frase adicionada com sucesso!");
+    } else {
+        alert("Digite uma frase válida.");
+    }
+});

@@ -1,16 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300;400;500;600;700&family=Nosifer&display=swap');
+
 .cormorant-unicase-light {
   font-family: "Cormorant Unicase", serif;
   font-weight: 300;
   font-style: normal;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-}
-
-.creepster-regular {
-  font-family: "Nosifer", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  text-shadow: 10px 10px 6px black;
 }
 
 * {
@@ -20,26 +14,11 @@
   transition: all 0.4s ease;
 }
 
-
 .container {
   width: 100%;
   max-width: 1200px; 
   margin: 0 auto;    
   padding: 0 20px;    
-}
-
-
-
-.maldito {
-  margin: 0;
-  height: 100vh;
-  background: radial-gradient(circle at center, #2b0000 0%, #4a0000 70%, #7a0000 100%, #000000 100%);
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-y: auto;
-  position: relative;
 }
 
 .divino {
@@ -53,9 +32,11 @@
   overflow-y: auto;
   position: relative;
 }
+
 main {
   margin-top: 50px;
 }
+
 main button {
   font-size: 20px;
   height: 60px;
@@ -63,60 +44,43 @@ main button {
 }
 
 #mode-toggle {
-    display: flex;
-    justify-content: center;
-    font-size: 2.9rem;
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-    border: none;
-    
+  display: flex;
+  justify-content: center;
+  font-size: 2.9rem;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
 }
-
 
 .button {
-    display: inline-block;
-    margin-left: 0.6rem;
-    background: transparent;
-    padding: 0rem 0.8rem;
-    color: black;
-    border: none;
-    text-decoration: none;
-    cursor: pointer;
-    transition-duration: 3ms;
-    position: relative;
-    top: -2px;
-    right: -5px;
+  display: inline-block;
+  margin-left: 0.6rem;
+  background: transparent;
+  padding: 0rem 0.8rem;
+  color: black;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 3ms;
+  position: relative;
+  top: -2px;
+  right: -5px;
 }
+
 .button:hover {
   background-color: rgb(185, 182, 182);
 }
 
-.button_top {
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-
-.button_top:hover {
-  font-size: 24px;
-}
-#emotions:hover > :not(:hover) {
-  filter: blur(5px);
-  opacity: 0.5;
-
-}
-
 #button-mode {
-    font-size: 6.0rem;
-    transition: all 0.4s ease;
+  font-size: 6.0rem;
+  transition: all 0.4s ease;
 }
 
 #response {
   display: flex;
   justify-content: center;
   margin-top: 50px;
-
 }
 
 #response span {
@@ -126,11 +90,69 @@ main button {
   font-size: 24px;
   text-align: center;
   margin: 80px;
-
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 
-  repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* MELHORIA NAS CAIXAS */
+#emotion-select, #adicionar-frase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  gap: 12px;
+  flex-wrap: wrap;
+  background-color: #fff9e6;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#emotion-select label {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+#emotion {
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#nova-frase {
+  flex: 1;
+  min-width: 240px;
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#mostrar-frase, #adicionar {
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  background-color: #f4d35e;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease;
+}
+
+#mostrar-frase:hover, #adicionar:hover {
+  background-color: #ffd93d;
 }
