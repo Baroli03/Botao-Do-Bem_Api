@@ -57,26 +57,26 @@ app.MapGet("/emocoes", (AppDbContext db) =>
     return Results.Ok(listaEmocoes);
 });
 
-app.MapGet("/emocoes/{id}", async (int id, AppDbContext db) => 
+app.MapGet("/emocoes/{id}", async (int id, AppDbContext db) =>
 {
     var emocoes = await db.Emocao.FindAsync(id);
     return emocoes is not null ? Results.Ok(emocoes) : Results.NotFound("Emocao não encontrado!");
 });
 
-app.MapGet("/emocoes/nome/{nome}", async (string nome, AppDbContext db) => 
+app.MapGet("/emocoes/nome/{nome}", async (string nome, AppDbContext db) =>
 {
     var emocoes = await db.Emocao.Where(e => e.Nome == nome).ToListAsync();
     return emocoes.Any() ? Results.Ok(emocoes) : Results.NotFound();
 });
 
-app.MapPost("/emocoes", async (AppDbContext db, Emocao emocao) => 
+app.MapPost("/emocoes", async (AppDbContext db, Emocao emocao) =>
 {
     db.Emocao.Add(emocao);
     await db.SaveChangesAsync();
     return Results.Created($"emocoes/{emocao.Id}", emocao);
 });
 
-app.MapPut("/emocoes/{id}", async (int id, AppDbContext db, Emocao updatedEmocao) => 
+app.MapPut("/emocoes/{id}", async (int id, AppDbContext db, Emocao updatedEmocao) =>
 {
     var EmocaoAtual = await db.Emocao.FindAsync(id);
 
@@ -93,7 +93,7 @@ app.MapPut("/emocoes/{id}", async (int id, AppDbContext db, Emocao updatedEmocao
     return Results.Ok(EmocaoAtual);
 });
 
-app.MapDelete("/emocoes/{id}", async (int id, AppDbContext db) => 
+app.MapDelete("/emocoes/{id}", async (int id, AppDbContext db) =>
 {
     var emocao = await db.Emocao.FindAsync(id);
 

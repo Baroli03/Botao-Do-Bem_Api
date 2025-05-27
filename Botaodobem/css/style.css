@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300;400;500;600;700&family=Nosifer&display=swap');
+
 .cormorant-unicase-light {
   font-family: "Cormorant Unicase", serif;
   font-weight: 300;
@@ -16,16 +17,16 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   transition: all 0.4s ease;
 }
 
 
 .container {
   width: 100%;
-  max-width: 1200px; 
-  margin: 0 auto;    
-  padding: 0 20px;    
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 
@@ -53,9 +54,8 @@
   overflow-y: auto;
   position: relative;
 }
-main {
-  margin-top: 50px;
-}
+
+
 main button {
   font-size: 20px;
   height: 60px;
@@ -63,31 +63,32 @@ main button {
 }
 
 #mode-toggle {
-    display: flex;
-    justify-content: center;
-    font-size: 2.9rem;
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-    border: none;
-    
+  display: flex;
+  justify-content: center;
+  font-size: 2.9rem;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+
 }
 
 
 .button {
-    display: inline-block;
-    margin-left: 0.6rem;
-    background: transparent;
-    padding: 0rem 0.8rem;
-    color: black;
-    border: none;
-    text-decoration: none;
-    cursor: pointer;
-    transition-duration: 3ms;
-    position: relative;
-    top: -2px;
-    right: -5px;
+  display: inline-block;
+  margin-left: 0.6rem;
+  background: transparent;
+  padding: 0rem 0.8rem;
+  color: black;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 3ms;
+  position: relative;
+  top: -2px;
+  right: -5px;
 }
+
 .button:hover {
   background-color: rgb(185, 182, 182);
 }
@@ -101,15 +102,16 @@ main button {
 .button_top:hover {
   font-size: 24px;
 }
-#emotions:hover > :not(:hover) {
+
+#emotions:hover> :not(:hover) {
   filter: blur(5px);
   opacity: 0.5;
 
 }
 
 #button-mode {
-    font-size: 6.0rem;
-    transition: all 0.4s ease;
+  font-size: 6.0rem;
+  transition: all 0.4s ease;
 }
 
 #response {
@@ -120,8 +122,8 @@ main button {
 }
 
 #response span {
-  display: inline-block; 
-  padding: 5px; 
+  display: inline-block;
+  padding: 5px;
   border: 2px solid #ccc;
   font-size: 24px;
   text-align: center;
@@ -135,13 +137,15 @@ main button {
 
 .grid {
   display: grid;
-  grid-template-columns: 
-  repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
+  grid-template-columns:
+    repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
 }
+
 .emotion-main {
   min-width: 300px;
-  flex-shrink: 0;  /* Não deixe ele encolher */
+  flex-shrink: 0;
+  /* Não deixe ele encolher */
   padding: 10px 20px;
   font-size: 1.2rem;
   cursor: pointer;
@@ -175,3 +179,38 @@ main button {
   width: 100%;
   opacity: 0.5;
 }
+
+#container2 {
+  display: none ;
+  justify-content: center;
+  position: fixed;
+}
+
+#editar {
+  display: none; /* começa escondido */
+  position: fixed; /* fixa na tela toda */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5); /* escurece o fundo */
+  z-index: 9999; /* sobre tudo */
+  overflow-y: auto; /* scroll se necessário */
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex; /* centraliza o conteúdo */
+  justify-content: center;
+  align-items: center;
+}
+
+#editar > div {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  width: 400px;
+  max-height: 90vh;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  overflow-y: auto;
+  position: relative;
+}
+
