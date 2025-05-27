@@ -129,8 +129,49 @@ main button {
 
 }
 
+.emotions {
+  display: flex;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 
   repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+.emotion-main {
+  min-width: 300px;
+  flex-shrink: 0;  /* Não deixe ele encolher */
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actions button {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #555;
+}
+
+.actions button:hover {
+  color: #000;
+}
+
+.adicionar {
+  margin-top: 20px;
+  width: 100%;
+  opacity: 0.5;
 }

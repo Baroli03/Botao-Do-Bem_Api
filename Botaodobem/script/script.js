@@ -4,6 +4,7 @@ const h1 = document.getElementById("h1");
 const apiURL = 'http://localhost:5159/emocoes';
 const divemocoes = document.getElementById("emotions");
 const span = document.getElementById("resultado");
+const mainElement = document.querySelector('main');
 
 let ligado = true;
 let campoFrase  = "frase"
@@ -52,10 +53,31 @@ const getEmocoes = async () => {
             if (!listemocoes.includes(emocao.nome)) {
                 listemocoes.push(emocao.nome);
 
+                const emotionDiv = document.createElement('div');
+                emotionDiv.classList.add('grid');
+                emotionDiv.classList.add('card');
+                
+
                 const newbutton = document.createElement('button');
                 newbutton.innerText = emocao.nome;
                 newbutton.id = emocao.nome;
-                divemocoes.appendChild(newbutton);
+                newbutton.classList.add('emotion-main');
+
+                const actions = document.createElement('div');
+                actions.classList.add('actions');
+                const btnEditar = document.createElement('button');
+                btnEditar.classList.add('Editar');
+                btnEditar.textContent = '✏️';
+                const btnExcluir = document.createElement('button');
+                btnExcluir.classList.add('Excluir')
+                btnExcluir.textContent = '🗑️';
+
+
+                actions.appendChild(btnEditar);
+                actions.appendChild(btnExcluir);
+                emotionDiv.appendChild(newbutton);
+                emotionDiv.appendChild(actions);
+                divemocoes.appendChild(emotionDiv);
 
                 // Busca as frases dessa emoção e armazena
                 const resp = await fetch(`${apiURL}/nome/${emocao.nome}`);
@@ -71,15 +93,39 @@ const getEmocoes = async () => {
                     } else {
                         span.innerText = "Nenhuma frase encontrada.";
                     }
-                });
-            }
-        }
+            });
+
+
+                
+                
+                btnEditar.addEventListener("click", (event) => {
+                    event.stopPropagation();  
+                         
+        });
+
+                btnExcluir.addEventListener("click", (event) => {
+                    event.stopPropagation();
+                    
+        });
+    }}
+
+        const btnAdicionar = document.createElement('button');
+        btnAdicionar.textContent = '➕';
+        btnAdicionar.classList.add('adicionar');
+        mainElement.appendChild(btnAdicionar)
+
+        btnAdicionar.addEventListener('click', () => {
+            
+        })
+
 
     } catch (error) {
         console.log(error.message);
         divemocoes.innerText = error.message;
     }
 };
+
+
 
 
 
