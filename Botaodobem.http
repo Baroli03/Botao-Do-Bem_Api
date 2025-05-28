@@ -1,0 +1,4 @@
+@Botaodobem_HostAddress = http://localhost:5159
+
+GET {{Botaodobem_HostAddress}}/emocoes
+Accept: application/json
