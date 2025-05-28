@@ -24,6 +24,16 @@
 
 ---
 
+💡 Observação sobre o Front-end
+
+Para que o front-end consiga se comunicar corretamente com a API do Botão do Bem, ele deve ser executado na porta 8080 no seu ambiente local.
+
+Isso significa que, ao iniciar o servidor ou serviço que serve os arquivos do front-end (por exemplo, um servidor HTTP simples, Vite, Webpack Dev Server, Live Server, ou outro), configure para que ele fique disponível em:
+
+http://localhost:8080
+
+Dessa forma, o front-end e o back-end estarão corretamente configurados para troca de dados, evitando problemas de CORS e facilitando o funcionamento das requisições para o endereço da API.
+
 ## 🚀 Como Executar o Projeto
 
 ### Pré-requisitos
