@@ -73,7 +73,7 @@ app.MapPost("/emocoes", async (AppDbContext db, Emocao emocao) =>
 {
     db.Emocao.Add(emocao);
     await db.SaveChangesAsync();
-    return Results.Created($"emocoes/{emocao.Id}", emocao);
+    return Results.Created($"/emocoes/{emocao.Id}", emocao);
 });
 
 app.MapPut("/emocoes/{id}", async (int id, AppDbContext db, Emocao updatedEmocao) =>
@@ -85,8 +85,9 @@ app.MapPut("/emocoes/{id}", async (int id, AppDbContext db, Emocao updatedEmocao
         return Results.NotFound("Emocao não encontrado!");
     }
 
-    EmocaoAtual.Nome = updatedEmocao.Nome;
+
     EmocaoAtual.Frase = updatedEmocao.Frase;
+    EmocaoAtual.FraseRuim = updatedEmocao.FraseRuim;
 
     await db.SaveChangesAsync();
 
