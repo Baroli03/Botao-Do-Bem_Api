@@ -30,26 +30,32 @@
                             <label for="frasedobem">Frase boasinha:</label>
                             <input type="text" id="frasedobem-adicionar" name="frasedobem"> <br>
                             <label for="fraseruim">Frase maldosa:</label>
-                            <input type="text" id="fraseruim-adicionar" name="fraseruim">
-                            <button type="submit">Salvar</button>
-                            <button type="button" id="fechar-adicionar">Fechar</button>
+                            <input type="text" id="fraseruim-adicionar" name="fraseruim"><br>
+                            <button class="buttonsubmit" type="submit">Salvar</button>
+                            <button class="buttonsubmit" type="button" id="fechar-adicionar">Fechar</button>
                         </form>
                     </div>
                     <div id="edit">
                         <h2 id="editar-titulo">Editando Emoção</h2>
                         <form action="" id="form-editar">
                             <label for="id-emocao">Qual o id da frase que vc deseja alterar?</label>
-                            <input type="number" id="id-emocao">
-                            <label for="frasedobem">Frase boasinha:</label>
-                            <input type="text" id="frasedobem" name="frasedobem">
-                            <label for="fraseruim">Frase maldosa:</label>
-                            <input type="text" id="fraseruim" name="fraseruim">
-                            <button type="submit">Salvar</button>
-                            <button type="button" id="fechar-editar">Fechar</button>
+                            <input type="number" id="id-emocao" class="id"><br>
+                            <label class="colorbem" for="frasedobem">Frase boasinha:</label>
+                            <input type="text" id="frasedobem" name="frasedobem"><br>
+                            <label class="colormal" for="fraseruim">Frase maldosa:</label>
+                            <input type="text" id="fraseruim" name="fraseruim"><br>
+                            <button class="buttonsubmit" type="submit">Salvar</button>
+                            <button class="buttonsubmit" type="button" id="fechar-editar">Fechar</button>
                         </form>
                     </div>
 
-
+                    <div id="excluir">
+                        <h2 id="excluir-titulo">Excluindo Emoção</h2>
+                        <label for="excluirfrase">Qual o id da frase que vc deseja excluir?</label>
+                        <input type="number" id="id-excluir" class="id"><br>
+                        <button class="buttonsubmit" type="submit">Salvar</button>
+                        <button class="buttonsubmit" type="button" id="fechar-excluir">Fechar</button>
+                    </div>
                 </div>
             </div>
         </div>

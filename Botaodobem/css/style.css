@@ -184,7 +184,47 @@ main button {
   display: none ;
   justify-content: center;
   position: fixed;
+  font-size: 20px;
 
+}
+
+#container2 input {
+  width: 300px;
+  height: 30px;
+}
+
+.id {
+  max-width: 60px;
+}
+
+#fraseruim {
+  margin-left: 3px;
+}
+#frasedobem {
+  max-width: 298px;
+}
+
+.colorbem {
+  color: green;
+}
+.colormal {
+  color:red;
+}
+
+#frasedobem-adicionar {
+  margin-left: 24px;
+}
+
+#fraseruim-adicionar {
+  margin-left: 28px;
+}
+
+.buttonsubmit {
+  font-size: 20px;
+ 
+}
+#excluir {
+  display: none;
 }
 
 #editar {

@@ -26,7 +26,7 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Ativa o CORS
-app.UseCors("AllowLocalhost8080");
+    
 
 if (app.Environment.IsDevelopment())
 {
@@ -35,6 +35,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowLocalhost8080");
+
 
 // resto do seu código continua igual...
 

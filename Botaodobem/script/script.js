@@ -108,7 +108,7 @@ const getEmocoes = async () => {
                 // Evento para excluir emoção
                 btnExcluir.addEventListener("click", async function () {
                     const idExcluir = this.dataset.id;
-                    await excluirEmocaoPrompt(idExcluir);
+                    await abrirFormularioExcluir(idExcluir);
                 });
             }
         }
@@ -142,41 +142,39 @@ async function abrirFormularioEditar(idEditar) {
     // Preenche o formulário com a primeira emoção da lista
     if (listaEmocoes.length > 0) {
         document.getElementById('id-emocao').value = listaEmocoes[0].Id;
-        document.getElementById('frasedobem').value = listaEmocoes[0].Frase;
-        document.getElementById('fraseruim').value = listaEmocoes[0].FraseRuim;
     }
 }
 
 // Função para excluir emoção via prompt e confirmação
-async function excluirEmocaoPrompt(idExcluir) {
+const excluirDiv = document.getElementById("excluir");
+const btnFecharExcluir = document.getElementById("fechar-excluir");
+
+// Não cria novo itens, vamos usar o existente
+// const itens = document.getElementById("itens"); // supondo que ele já existe e está visível no bloco excluir
+
+async function abrirFormularioExcluir(idExcluir) {
+    btnAdicionar.style.display = 'none';  // Esconde botão adicionar
+    excluirDiv.style.display = "block";   // Mostra div do form de exclusão
+    container2.style.display = "flex";
+
+    // Busca emoções com o mesmo ID para mostrar ao usuário
     const listaEmocoes = await buscarEmocoesPorId(idExcluir);
-    if (listaEmocoes.length === 0) {
-        alert("Nenhuma emoção encontrada para deletar.");
-        return;
-    }
 
-    const idsEfrases = listaEmocoes.map(e => `ID: ${e.Id}, Frase: ${e.Frase}`).join('\n');
+    itens.innerHTML = '';  // Limpa lista anterior
 
-    const idEscolhido = prompt(
-        `As seguintes emoções relacionadas foram encontradas:\n\n${idsEfrases}\n\nDigite o ID que deseja deletar:`
-    );
+    listaEmocoes.forEach(emocao => {
+        const span = document.createElement('span');
+        span.innerHTML = `
+            ID: ${emocao.Id} <br>
+            Frase Boasinha: ${emocao.Frase} <br>
+            Frase Maldita: ${emocao.FraseRuim} <br><br>
+        `;
+        itens.appendChild(span);
+    });
 
-    if (!idEscolhido) {
-        alert("Exclusão cancelada.");
-        return;
-    }
-
-    const idNumerico = parseInt(idEscolhido);
-
-    const existe = listaEmocoes.some(e => e.Id === idNumerico);
-    if (!existe) {
-        alert("ID inválido. Exclusão cancelada.");
-        return;
-    }
-
-    const confirmar = confirm(`Deseja realmente excluir a emoção com ID: ${idNumerico}?`);
-    if (confirmar) {
-        await deletarEmocaoPorId(idNumerico);
+    // Preenche o input com o ID
+    if (listaEmocoes.length > 0) {
+        document.getElementById('id-emocao').value = listaEmocoes[0].Id;
     }
 }
 
@@ -206,15 +204,58 @@ async function buscarEmocoesPorId(id) {
     }
 }
 
+document.querySelector('#excluir .buttonsubmit[type="submit"]').addEventListener('click', async function (e) {
+    e.preventDefault();
+
+    const id = document.getElementById('id-excluir').value.trim();
+
+    if (!id) {
+        alert('Por favor, informe um ID válido para excluir.');
+        return;
+    }
+
+    try {
+        await deletarEmocaoPorId(id);
+
+        excluirDiv.style.display = "none";
+        container2.style.display = "none";
+        btnAdicionar.style.display = 'block';
+
+        // Atualiza lista de emoções após exclusão
+        divEmocoes.innerHTML = "";
+        listaEmocoesNomes = [];
+        await getEmocoes();
+
+        alert('Emoção excluída com sucesso!');
+
+    } catch (error) {
+        alert('Erro ao excluir emoção.');
+    }
+});
+
+btnFecharExcluir.addEventListener('click', function () {
+    excluirDiv.style.display = "none";
+    container2.style.display = "none";
+    btnAdicionar.style.display = 'block';
+
+
+});
+
 // DELETE
 async function deletarEmocaoPorId(id) {
     try {
-        const response = await fetch(`${apiURL}/${id}`, { method: 'DELETE' });
-        if (!response.ok) throw new Error('Erro ao deletar emoção.');
-        alert('Emoção deletada com sucesso!');
-        window.location.reload();
+        const response = await fetch(`${apiURL}/${id}`, {
+            method: 'DELETE'
+        });
+
+        if (!response.ok) {
+            throw new Error('Erro ao excluir emoção.');
+        }
+
+        alert('Emoção excluída com sucesso!');
     } catch (error) {
-        alert(error.message);
+        console.error('Erro:', error);
+        alert('Não foi possível excluir a emoção.');
     }
 }
 
@@ -255,7 +296,7 @@ formEditar.addEventListener('submit', async (e) => {
 // Botão fechar edição
 btnFecharEdit.addEventListener('click', () => {
     container2.style.display = "none";
-    editDiv.style.display = "none";
+    editDiv.style.display = 'none'
     btnAdicionar.style.display = 'block';
 });
 
@@ -267,7 +308,6 @@ mainElement.appendChild(btnAdicionar);
 
 // Ao clicar no botão adicionar
 btnAdicionar.addEventListener('click', () => {
-    editDiv.style.display = "none";
     container2.style.display = "flex";
     formNovo.style.display = 'block';
     itens.innerHTML = '';
@@ -306,6 +346,11 @@ formAdicionar.addEventListener('submit', async (e) => {
         if (!response.ok) throw new Error('Erro ao criar emoção.');
 
         alert('Emoção criada com sucesso!');
+        formNovo.style.display = 'none';
+        container2.style.display = 'none';
+        btnAdicionar.style.display = 'block';
+        formAdicionar.reset();
+
         window.location.reload();
     } catch (error) {
         alert(error.message);
