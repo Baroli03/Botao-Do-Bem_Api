@@ -8,8 +8,8 @@
 
 ## 👥 Integrantes da Dupla
 
-- Nome Completo do Aluno 1 - [usuario Github](https://github.com/Baroli03)
-- Nome Completo do Aluno 2 - [usuario Github](https://github.com/vicmg12)
+- Eduardo Baroli Souza - [usuario Github](https://github.com/Baroli03)
+- Victor Moura Gasparetto - [usuario Github](https://github.com/vicmg12)
 
 ---
 
