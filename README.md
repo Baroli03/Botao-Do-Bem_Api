@@ -49,7 +49,7 @@ Dessa forma, o front-end e o back-end estarão corretamente configurados para tr
 git clone https://github.com/Baroli03/Botao-Do-Bem_Api.git
 
 # 2. Acesse a pasta do projeto
-cd Botao-Do-Bem_Api
+cd cd Botaodobem
 
 # 3. Restaure os pacotes
 dotnet restore
